@@ -6,9 +6,9 @@
 
   <groupId>com.mycompany.app</groupId>
   <artifactId>swingy</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 
-  <name>my-app</name>
+  <name>swingy</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -69,6 +69,22 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <!--UPPER OWN INSERTION FOR MANIFEST FILE-->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.1.0</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addClasspath>true</addClasspath>
+                <classpathPrefix>lib</classpathPrefix>
+                <mainClass>com.mycompany.app.App</mainClass>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <!--LOWER OWN INSERTION FOR MANIFEST FILE-->
       </plugins>
     </pluginManagement>
   </build>
