@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.app.AppTest" time="0.048" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.app.AppTest" time="0.035" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ZA"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/goinfre/sbriggs/Desktop/workspace/my-app/target/surefire/surefirebooter16127872287532596592.jar /goinfre/sbriggs/Desktop/workspace/my-app/target/surefire 2019-07-23T15-04-42_364-jvmRun1 surefire3054587875820415834tmp surefire_018186055669214101341tmp"/>
+    <property name="sun.java.command" value="/goinfre/sbriggs/Desktop/workspace/my-app/target/surefire/surefirebooter4331902400857909473.jar /goinfre/sbriggs/Desktop/workspace/my-app/target/surefire 2019-07-24T09-01-49_962-jvmRun1 surefire15568703039953577251tmp surefire_05958357803001108055tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/goinfre/sbriggs/Desktop/workspace/my-app/target/test-classes:/goinfre/sbriggs/Desktop/workspace/my-app/target/classes:/goinfre/sbriggs/.m2/repository/junit/junit/4.11/junit-4.11.jar:/goinfre/sbriggs/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/goinfre/sbriggs/Desktop/workspace/my-app/target/surefire/surefirebooter16127872287532596592.jar"/>
+    <property name="surefire.real.class.path" value="/goinfre/sbriggs/Desktop/workspace/my-app/target/surefire/surefirebooter4331902400857909473.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="11.0.3+12-LTS"/>
@@ -41,7 +41,7 @@
     <property name="path.separator" value=":"/>
     <property name="os.version" value="10.14.6"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="file.encoding" value="US-ASCII"/>
+    <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="java.vendor.version" value="18.9"/>
     <property name="localRepository" value="/goinfre/sbriggs/.m2/repository"/>

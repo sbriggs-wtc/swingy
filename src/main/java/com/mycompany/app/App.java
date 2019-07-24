@@ -3,14 +3,39 @@ package com.mycompany.app;
 import java.awt.Dimension;
 import java.awt.Toolkit; //awt -> abstract window toolkit
 import javax.swing.*;
+import java.util.Scanner;
 
 
-public class App extends JFrame {
-    public static void main(String[] args) {
-        new App();
+public class App extends JFrame{
+    public static void main(String[] args){
+        try{
+            switch(args[0]){
+                case "console":
+                    System.out.println("Console Mode");
+                    System.out.println("1) Create a hero");
+                    System.out.println("2) Select previously created hero");
+                    Scanner scanner = new Scanner(System.in);
+                    scanner.nextLine();
+                    scanner.close();
+                    break;
+                case "gui":
+                    System.out.println("GUI Mode");
+                    break;
+                default:
+                    System.out.println("console/gui?");
+                    break;
+            }
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Usage: java -jar target/swingy-1.0.jar [console/gui]");
+        }
+    }
+}
+
+/* 
+        //new App();
         //System.out.println( "Hello World!" );
     }
-    public App() {
+    public App(){
         this.setSize(400, 400);
         //this.setLocationRelativeTo(null);
         Toolkit tk = Toolkit.getDefaultToolkit(); //calling a factory method
@@ -53,3 +78,4 @@ public class App extends JFrame {
 }
 
 //in POM my-app changed to swingy
+ */
