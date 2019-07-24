@@ -4,8 +4,9 @@ import java.awt.Dimension;
 import java.awt.Toolkit; //awt -> abstract window toolkit
 import javax.swing.*;
 
-public class GUIView extends JFrame{
-    public GUIView(){
+public class GuiView extends JFrame implements Viewable{
+    public GuiView(){}
+    public void run(){
         System.out.println("GUI Mode");
         this.setSize(400, 400);
         //this.setLocationRelativeTo(null);
