@@ -5,7 +5,7 @@ import com.mycompany.swingy.view.*;
 
 public class Controller{
     CliView cliView = new CliView();
-    GuiView guiView;// = new GuiView();
+    GuiView guiView;
     Model model = new Model();
     public Controller(String[] args){
         try{
@@ -20,9 +20,9 @@ public class Controller{
                     throw new Exception();
             }
         }catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("Usage: java -jar target/swingy-1.0.jar [console/gui]");
+            System.out.println(e.getMessage()/* "Usage: java -jar target/swingy-1.0.jar [console/gui]" */);
         }catch(Exception e){
-            System.out.println("Usage: java -jar target/swingy-1.0.jar [console/gui]");
+            System.out.println(e.getMessage()/* "Usage: java -jar target/swingy-1.0.jar [console/gui]" */);
         }
     }
 }

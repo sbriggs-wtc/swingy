@@ -1,16 +1,14 @@
 package com.mycompany.swingy.view;
 
 public class MainMenu extends Menu{
-    public MainMenu(){
+    public MainMenu(Menu parentMenu){
         setTitle("Main Menu");
         setOptions();
     }
     @Override
     public void setOptions(){
-        options.add("Hello");
-        options.add("World");
-        options.add("How");
-        options.add("Are");
-        options.add("You");
+        options.add(new HeroCreationMenu());
+        options.add(new HeroSelectionMenu());
+        options.add(this.parentMenu);
     }
 }

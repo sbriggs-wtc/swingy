@@ -9,17 +9,28 @@ public class CliView implements Viewable{
     }
     public void run(){
         
-        MainMenu mm = new MainMenu();
-        mm.printMenu();
-
-/*         String s = scanInput();
-        if (s.equals("1")){
-            printCreateHeroMenu();
+        Menu menu = MenuFactory.newMenu("MainMenu", null);
+        Menu parentMenu = MenuFactory.newMenu("MainMenu", null);
+        while(true){
+            menu.printMenu();
+            int i = menu.scanInput();
+            String selectedMenu = menu.selectOption(i);
+            parentMenu = menu;
+            menu = MenuFactory.newMenu(selectedMenu, parentMenu);
         }
-        else if (s.equals("2")){
-            printSelectHeroMenu();
-        } */
-        switch(scanInput()){
+        // Menu m = new MainMenu();
+        // m.printMenu();
+        // int i = m.scanInput();
+        // m.selectOption(i);
+        // mf.newMenu(type);
+
+
+/*         displayWhicheverMenu
+        basedOn
+        receiveWhicheverOption */
+
+        //System.out.println(s);
+/*         switch(scanInput()){
             case "1":
                 new HeroCreationMenu();
                 //printCreateHeroMenu();
@@ -33,7 +44,7 @@ public class CliView implements Viewable{
             default:
                 System.out.println("1/2?");
                 break;
-        }
+        } */
     }
     public void printMainMenu(){
         System.out.println("Console Mode");
@@ -42,12 +53,12 @@ public class CliView implements Viewable{
         System.out.println("2) Select a previously created hero");
         System.out.println("3) Quit");
     }
-    public String scanInput(){
+/*     public String scanInput(){
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
         scanner.close();
         return s;
-    }
+    } */
     public void printCreateHeroMenu(){
         System.out.println("Create hero menu");
         System.out.println("1) ");
