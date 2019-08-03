@@ -20,35 +20,27 @@ public class CreateHeroViewGUI extends JFrame{
     private String infoPaneString = "";
     public void start(){
         controller = new CreateHeroController();
-        
         jpanel.add(heroClass);
         jpanel.add(heroNameField);
         classesComboBox.setSelectedIndex(0);
         jpanel.add(classesComboBox);
         jpanel.add(createHeroButton);
         jpanel.setVisible(true);
-/* 
         infoPane.setEditable(false);
-        infoPane.setText("Details\nDetails\nDetails\n");
-        this.add(infoPane);
-         */
-        infoPane.setEditable(false);
-        infoPaneString += "Hello\n";
-        infoPaneString += "World\n";
-        infoPaneString += "Yay\n";
+        infoPane.setSize(300, 300);
+        infoPaneString += "Class        Attack      Defense     Hit Points\n";
+        infoPaneString += "Philosopher  999         999         999\n";
+        infoPaneString += "Scientist    999         999         999\n";
+        infoPaneString += "Politician   999         999         999\n";
+        infoPaneString += "Prophet      999         999         999\n";
+        infoPaneString += "Artist       999         999         999\n";
         infoPane.setText(infoPaneString);
         jpanel.add(infoPane);
-
         this.add(jpanel);
-
-
-
-
         this.setSize(500, 500);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Create Hero");
         this.setVisible(true);
-
     }
 }
