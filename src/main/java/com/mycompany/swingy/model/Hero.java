@@ -7,6 +7,7 @@ import javax.validation.Validation;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import com.mycompany.swingy.exceptions.*;
 
 public abstract class Hero{
     @NotNull(message = "Name cannot be null")
@@ -23,7 +24,7 @@ public abstract class Hero{
 
     public Hero(){}
 
-    public void validateHero(){
+    public void validateHero() throws HeroValidationException{
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
@@ -32,6 +33,7 @@ public abstract class Hero{
             for(ConstraintViolation<Hero> constraint : constraintViolations){
                 System.out.println(constraint.getMessage());
             }
+            throw new HeroValidationException("Oh no");
         }
     }
     public void setName(String name){this.name = name;}

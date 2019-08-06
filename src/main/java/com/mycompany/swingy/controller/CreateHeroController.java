@@ -1,9 +1,14 @@
 package com.mycompany.swingy.controller;
-//import com.mycompany.swingy.view.*;
+import com.mycompany.swingy.view.*;
 import com.mycompany.swingy.model.*;
 import com.mycompany.swingy.model.Hero; // otherwise Character is ambiguous->java.lang.Character
+import com.mycompany.swingy.exceptions.*;
 
 public class CreateHeroController{
+    private CreateHeroViewable view;
+    public CreateHeroController(CreateHeroViewable view){
+        this.view = view;
+    }
     public void onCreateHeroButtonPressed(String name, int heroClass){
         final int PHILOSOPHER = 0;
         final int SCIENTIST = 1;
@@ -23,12 +28,13 @@ public class CreateHeroController{
                     hero = new Politician(name);
                     break;
                 default:
-                    throw new Exception("Exception in onCreateHeroButtonPressed()");
+                    throw new HeroClassException("Exception in onCreateHeroButtonPressed()");
             }
             hero.validateHero();
             
-        }catch(Exception e){
-            System.err.println(e.getMessage());
+        }catch(HeroClassException | HeroValidationException e){
+            //System.err.println(e.getMessage());
+            view.showErrorMessage(e.getMessage());
         }
 
         //validate new hero

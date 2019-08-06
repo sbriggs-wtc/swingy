@@ -6,7 +6,8 @@ import com.mycompany.swingy.Main;
 import javax.swing.*;
 import java.awt.event.*;
 
-    public class CreateHeroViewGUI extends JPanel{
+//CHV implementation helps simplify the controller.
+public class CreateHeroViewGUI extends JPanel implements CreateHeroViewable{
     private static final long serialVersionUID = 1L;
     private JTextField heroNameField = new JTextField(10);
     private JButton createHeroButton = new JButton("Create Hero");
@@ -20,7 +21,7 @@ import java.awt.event.*;
 
         Main.getFrame().setTitle("Create Hero View");
 
-        controller = new CreateHeroController();
+        controller = new CreateHeroController(this);
         this.add(heroClass);
         this.add(heroNameField);
         classesComboBox.setSelectedIndex(0);
@@ -47,5 +48,8 @@ import java.awt.event.*;
                 }
         });
         this.add(createHeroButton);
+    }
+    public void showErrorMessage(String message){
+        JOptionPane.showMessageDialog(Main.getFrame(), message);
     }
 }
