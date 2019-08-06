@@ -35,8 +35,13 @@ public class Main{
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(500, 500);
             frame.setLocationRelativeTo(null);
-            //frame.addWindowListener(new ListenForWindow());
             frameListener();
+/*          frame.addWindowListener(new ListenForWindow());
+            frame.addWindowListener(new WindowAdapter() {
+                //windowAdapter is like the window listener interface but
+                //without the need to override all of the methods defined
+                //in windowListener
+            }); */
         }
         return frame;
     }
@@ -50,7 +55,8 @@ public class Main{
             //do nothing for now
         });
     }
-/*     private class ListenForWindow implements WindowListener {
+/*     
+    private static class ListenForWindow implements WindowListener {
         @Override public void windowOpened(WindowEvent e){}
         @Override public void windowClosing(WindowEvent e){}
         @Override public void windowClosed(WindowEvent e){}
