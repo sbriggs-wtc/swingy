@@ -10,21 +10,16 @@ public class CreateHeroController{
         this.view = view;
     }
     public void onCreateHeroButtonPressed(String name, int heroClass){
-        final int PHILOSOPHER = 0;
-        final int SCIENTIST = 1;
-        final int POLITICIAN = 2;
         Hero hero;
-        System.out.println(name);
-        System.out.println(heroClass);
         try{
             switch(heroClass){
-                case PHILOSOPHER: 
+                case 0: 
                     hero = new Philosopher(name);
                     break;
-                case SCIENTIST:
+                case 1:
                     hero = new Scientist(name);
                     break;
-                case POLITICIAN:
+                case 2:
                     hero = new Politician(name);
                     break;
                 default:
@@ -33,11 +28,9 @@ public class CreateHeroController{
             hero.validateHero();
             
         }catch(HeroClassException | HeroValidationException e){
-            //System.err.println(e.getMessage());
             view.showErrorMessage(e.getMessage());
         }
-
-        //validate new hero
+        int id = database.insert();
         //insert new hero in db
         //start game
     }

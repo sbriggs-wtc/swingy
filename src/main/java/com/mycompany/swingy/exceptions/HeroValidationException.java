@@ -7,13 +7,30 @@ import javax.validation.*;
 
 public class HeroValidationException extends Exception{
     private static final long serialVersionUID = 1L;
+    private StringBuilder stringBuilder = new StringBuilder();
+    private String message;
     public HeroValidationException(String message){
-        super(message);
+        setMessage(message);
     }
     public HeroValidationException(Set<ConstraintViolation<Hero>> constraintViolations){
-        for(ConstraintViolation<Hero> constraint : constraintViolations){
-            //parse the CV set, create string
-            System.out.println(constraint.getMessage());
+        stringBuilder.append("Hero validation error(s): ");
+        stringBuilder.append(constraintViolations.size());
+        stringBuilder.append("\n");
+        int i = 1;
+        for(ConstraintViolation<Hero> violation : constraintViolations){
+            stringBuilder.append(i + ") ");
+            stringBuilder.append(violation.getMessage());
+            stringBuilder.append(" Your setting: " + violation.getInvalidValue() + ".");
+            stringBuilder.append("\n");
+            i++;
         }
+        setMessage(stringBuilder.toString());
+    }
+    @Override
+    public String getMessage(){
+        return this.message;
+    }
+    public void setMessage(String message){
+        this.message = message;
     }
 }

@@ -4,10 +4,10 @@ public class Philosopher extends Hero{
     public Philosopher(String name){
         setName(name);
         setCharacterClass("Philosopher");
-        setLevel(1);
-        setExperience(1);
-        setAttack(99);
-        setDefence(99);
-        setHitPoints(99);
+        setLevel(0);
+        setExperience(0);
+        setAttack(50);
+        setDefence(50);
+        setHitPoints(50);
     }
 }

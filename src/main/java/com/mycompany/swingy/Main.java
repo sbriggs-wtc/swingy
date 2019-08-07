@@ -13,7 +13,6 @@ import com.mycompany.swingy.view.*;
 public class Main{
     private static JFrame frame = null;//changed this
     private static Scanner scanner;
-    //private static ListenForWindow listenForWindow = new ListenForWindow();
     public static void main(String[] args){
         if(!isValidInput(args)){
             System.out.println("The input is invalid");
@@ -36,12 +35,6 @@ public class Main{
             frame.setSize(500, 500);
             frame.setLocationRelativeTo(null);
             frameListener();
-/*          frame.addWindowListener(new ListenForWindow());
-            frame.addWindowListener(new WindowAdapter() {
-                //windowAdapter is like the window listener interface but
-                //without the need to override all of the methods defined
-                //in windowListener
-            }); */
         }
         return frame;
     }
@@ -55,14 +48,4 @@ public class Main{
             //do nothing for now
         });
     }
-/*     
-    private static class ListenForWindow implements WindowListener {
-        @Override public void windowOpened(WindowEvent e){}
-        @Override public void windowClosing(WindowEvent e){}
-        @Override public void windowClosed(WindowEvent e){}
-        @Override public void windowIconified(WindowEvent e){}
-        @Override public void windowDeiconified(WindowEvent e){}
-        @Override public void windowActivated(WindowEvent e){}
-        @Override public void windowDeactivated(WindowEvent e){}
-    } */
 }

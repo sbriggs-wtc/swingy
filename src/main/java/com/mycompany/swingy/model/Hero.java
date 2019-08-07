@@ -5,21 +5,35 @@ import java.util.Set;
 import javax.validation.*;
 import javax.validation.Validation;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import com.mycompany.swingy.exceptions.*;
 
 public abstract class Hero{
-    @NotNull(message = "Name cannot be null")
-    @Size(min = 2, max = 16, message = "Name length should not be less than 2 or greater than 16")
+    @NotNull(message = "Name cannot be null.")
+    @Size(min = 2, max = 16, message = "Name length should not be less than 2 or greater than 16.")
     private String name;
+
+    @NotNull(message = "Character class can't be null.")
     private String characterClass;
 
-    @Min(value = 0, message = "Level should not be less than 0")
+    @Min(value = 0, message = "Level should not be less than 0.")
     private int level;
+
+    @Min(value = 0, message = "Experience should not be less than 0.")
     private int experience;
+
+    @Min(value = 0, message = "Attack should not be less than 0.")
+    @Max(value = 100, message = "Attack should not be more than 100.")
     private int attack;
+
+    @Min(value = 0, message = "Defence should not be less than 0.")
+    @Max(value = 100, message = "Defence should not be more than 100.")
     private int defence;
+
+    @Min(value = 0, message = "HitPoints should not be less than 0.")
+    @Max(value = 100, message = "HitPoints should not be more than 100.")
     private int hitPoints;
 
     public Hero(){}
@@ -30,10 +44,7 @@ public abstract class Hero{
 
         Set<ConstraintViolation<Hero>> constraintViolations = validator.validate(this);
         if(!constraintViolations.isEmpty()){
-            for(ConstraintViolation<Hero> constraint : constraintViolations){
-                System.out.println(constraint.getMessage());
-            }
-            throw new HeroValidationException("Oh no");
+            throw new HeroValidationException(constraintViolations);
         }
     }
     public void setName(String name){this.name = name;}
