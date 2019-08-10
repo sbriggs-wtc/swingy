@@ -3,7 +3,7 @@ import com.mycompany.swingy.Main;
 import com.mycompany.swingy.controller.*;
 import javax.swing.*;
 import java.awt.event.*;
-    public class StartViewGui extends JPanel implements StartViewable{
+    public class StartViewGUI extends JPanel implements StartViewable{
     private static final long serialVersionUID = 1L;
     private JButton createHeroButton;
     private JButton selectHeroButton;
@@ -11,14 +11,34 @@ import java.awt.event.*;
     private JTextArea textArea1;
     private int buttonClicked;
     private StartController startController;
-    public StartViewGui(){}
+    public StartViewGUI(){}
     public void start(){
         startController = new StartController(this);
         Main.getFrame().setTitle("Start View1");
-        createHeroButton = new JButton("Create Hero");
-        selectHeroButton = new JButton("Select Hero");
-        ListenForButton lForButton = new ListenForButton();
-        selectHeroButton.addActionListener(lForButton);
+        createHeroButton = new JButton("Create Hero Menu");
+        selectHeroButton = new JButton("Select Hero Menu");
+        //ListenForButton lForButton = new ListenForButton();
+        selectHeroButton.addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    startController.onSelectHeroButtonPressed();
+                }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         createHeroButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,7 +68,6 @@ import java.awt.event.*;
         //Main.showFrame();//original method
         Main.getFrame().setVisible(true); //custom shortcut
     }
-
     private class ListenForButton implements ActionListener{
         public void actionPerformed(ActionEvent e){
             if (e.getSource() == createHeroButton){
@@ -61,7 +80,6 @@ import java.awt.event.*;
             }
         }
     }
-
     private class ListenForKeys implements KeyListener{
         @Override
         public void keyTyped(KeyEvent e){
@@ -70,7 +88,6 @@ import java.awt.event.*;
         @Override public void keyPressed(KeyEvent e){}
         @Override public void keyReleased(KeyEvent e){}
     }
-
     private class ListenForMouse implements MouseListener{
         @Override
         public void mouseClicked(MouseEvent e){//called when mouse is clicked
@@ -84,9 +101,12 @@ import java.awt.event.*;
         @Override public void mouseEntered(MouseEvent e){}
         @Override public void mouseExited(MouseEvent e){}
     }
-
     public void openCreateHero(){
         this.setVisible(false);
         new CreateHeroViewGUI().start();
+    }
+    public void openSelectHero(){
+        this.setVisible(false);
+        new SelectHeroViewGUI().start();
     }
 }

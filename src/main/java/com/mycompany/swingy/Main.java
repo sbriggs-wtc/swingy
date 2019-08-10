@@ -9,20 +9,23 @@ import java.awt.event.WindowAdapter; //???
 //import com.mycompany.swingy.model.*;
 import com.mycompany.swingy.view.*;
 //import com.mycompany.swingy.controller.*;
+import com.mycompany.swingy.database.*;
 
 public class Main{
     private static JFrame frame = null;//changed this
     private static Scanner scanner;
+
+
     public static void main(String[] args){
         if(!isValidInput(args)){
             System.out.println("The input is invalid");
             System.exit(1);
         }
-        //DB.connect
+        DBHandler.connect();
         if(args[0].equals("console")){
             new StartViewConsole().start();
         }else if(args[0].equals("gui")){
-            new StartViewGui().start();
+            new StartViewGUI().start();
         }
     }
     private static boolean isValidInput(String[] args){

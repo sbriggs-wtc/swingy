@@ -6,8 +6,8 @@ public class Politician extends Hero{
         setCharacterClass("Politician");
         setLevel(0);
         setExperience(0);
-        setAttack(99);
-        setDefence(99);
-        setHitPoints(99);
+        setAttack(75);
+        setDefence(25);
+        setHitPoints(100);
     }
 }

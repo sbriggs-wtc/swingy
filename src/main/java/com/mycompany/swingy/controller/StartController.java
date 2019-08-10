@@ -2,11 +2,14 @@ package com.mycompany.swingy.controller;
 import com.mycompany.swingy.view.*;
 
 public class StartController{
-    private StartViewable startView;
-    public StartController(StartViewable startView){
-        this.startView = startView;
+    private StartViewable startViewable;
+    public StartController(StartViewable startViewable){
+        this.startViewable = startViewable;
     }
     public void onCreateHeroButtonPressed(){
-        startView.openCreateHero();
+        startViewable.openCreateHero();
+    }
+    public void onSelectHeroButtonPressed(){
+        startViewable.openSelectHero();
     }
 }

@@ -47,6 +47,18 @@ public abstract class Hero{
             throw new HeroValidationException(constraintViolations);
         }
     }
+    public String toString(){
+            StringBuilder stringBuilder = new StringBuilder();
+            //stringBuilder.append(this.id + " ");
+            stringBuilder.append("Name: " + this.name + "\n"); 
+            stringBuilder.append("Class: " + this.characterClass+ "\n");
+            stringBuilder.append("Level: " + this.level+ "\n");
+            stringBuilder.append("Experience: " + this.experience+ "\n");
+            stringBuilder.append("Attack: " + this.attack+ "\n");
+            stringBuilder.append("Defence: " + this.defence+ "\n");
+            stringBuilder.append("Hitpoints: " + this.hitPoints+ "\n");
+            return(stringBuilder.toString());
+    }
     public void setName(String name){this.name = name;}
     public void setCharacterClass(String characterClass){this.characterClass = characterClass;}
     public void setLevel(int level){this.level = level;}

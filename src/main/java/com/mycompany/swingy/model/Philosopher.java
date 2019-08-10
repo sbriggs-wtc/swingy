@@ -6,8 +6,8 @@ public class Philosopher extends Hero{
         setCharacterClass("Philosopher");
         setLevel(0);
         setExperience(0);
-        setAttack(50);
-        setDefence(50);
-        setHitPoints(50);
+        setAttack(25);
+        setDefence(75);
+        setHitPoints(100);
     }
 }

@@ -6,8 +6,8 @@ public class Scientist extends Hero{
         setCharacterClass("Scientist");
         setLevel(0);
         setExperience(0);
-        setAttack(99);
-        setDefence(99);
-        setHitPoints(99);
+        setAttack(50);
+        setDefence(50);
+        setHitPoints(100);
     }
 }
