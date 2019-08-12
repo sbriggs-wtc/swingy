@@ -27,7 +27,7 @@ public class SelectHeroViewGUI extends JPanel implements SelectHeroViewable{
         createHeroMenuButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                selectHeroController.onCreateButtonPressed();
+                selectHeroController.onMainMenuButtonPressed();
             }
         });
         this.add(createHeroMenuButton);
@@ -57,29 +57,46 @@ public class SelectHeroViewGUI extends JPanel implements SelectHeroViewable{
         jScrollPane2.setPreferredSize(new Dimension(200, 200));
         jScrollPane2.setMinimumSize(new Dimension(150, 150));
         this.add(jScrollPane2);
-
         selectHeroButton.setEnabled(false);
+
+
+/*  */
         selectHeroButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                selectHeroController.onSelectButtonPressed();
+                selectHeroController.onSelectButtonPressed(lastSelectedIdx);
             }
         });
+/*  */
+
+
         this.add(selectHeroButton);
-
-
-
         this.setVisible(true);
         Main.getFrame().setContentPane(this);
         Main.getFrame().revalidate();
         Main.getFrame().setVisible(true);
     }
     @Override
-    public void updateInfo(String info) {
+    public void updateInfo(String info){
         jEditorPane.setText(info);
     }
+    @Override
     public void openMainMenuView(){
         this.setVisible(false);
         new StartViewGUI().start();
     }
+
+
+
+/*  */    
+    @Override
+    public void openGame(){
+        this.setVisible(false);
+        new GameViewGUI().start();
+    }
+/*  */
+
+
+
+
 }

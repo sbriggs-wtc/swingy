@@ -24,21 +24,6 @@ import java.awt.event.*;
                     startController.onSelectHeroButtonPressed();
                 }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         createHeroButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,7 +53,7 @@ import java.awt.event.*;
         //Main.showFrame();//original method
         Main.getFrame().setVisible(true); //custom shortcut
     }
-    private class ListenForButton implements ActionListener{
+/*     private class ListenForButton implements ActionListener{
         public void actionPerformed(ActionEvent e){
             if (e.getSource() == createHeroButton){
 
@@ -79,7 +64,7 @@ import java.awt.event.*;
                 textArea1.append("Select clicked" + buttonClicked + "times\n");
             }
         }
-    }
+    } */
     private class ListenForKeys implements KeyListener{
         @Override
         public void keyTyped(KeyEvent e){

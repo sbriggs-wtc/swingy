@@ -12,9 +12,8 @@ import com.mycompany.swingy.view.*;
 import com.mycompany.swingy.database.*;
 
 public class Main{
-    private static JFrame frame = null;//changed this
+    private static JFrame frame = null;
     private static Scanner scanner;
-
 
     public static void main(String[] args){
         if(!isValidInput(args)){
@@ -35,7 +34,7 @@ public class Main{
         if (frame == null){
             frame = new JFrame();
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(500, 500);
+            frame.setSize(800, 800);
             frame.setLocationRelativeTo(null);
             frameListener();
         }
