@@ -37,8 +37,14 @@ public class GameController{
         game.getHeroCoord().setY(y);
 
         if(game.getMap()[x][y]){ //syntax that can be used on arrays
-            villainCollision();
+            if(game.getHero().getHitPoints() > 10){
+                game.getHero().setHitPoints(game.getHero().getHitPoints() - 10);
+                game.setMapPosToFalse(x, y);
+            }else{
+                loseGame();
+            }
         }
+        
 
         gameView.update(game);
         //change coord
@@ -56,7 +62,8 @@ public class GameController{
         gameView.showMessage("You win"); 
         gameView.openMainMenuView();
     }
-    public void villainCollision(){
-        
+    public void loseGame(){
+        gameView.showMessage("You lose"); 
+        gameView.openMainMenuView();
     }
 }

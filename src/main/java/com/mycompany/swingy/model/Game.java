@@ -67,4 +67,7 @@ public class Game{
     public Hero getHero(){
         return hero;
     }
+    public void setMapPosToFalse(int x, int y){
+        map[x][y] = false;
+    }
 }
