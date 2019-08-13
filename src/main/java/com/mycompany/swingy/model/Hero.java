@@ -11,6 +11,9 @@ import javax.validation.constraints.Size;
 import com.mycompany.swingy.exceptions.*;
 
 public abstract class Hero{
+
+    private int id;
+
     @NotNull(message = "Name cannot be null.")
     @Size(min = 2, max = 16, message = "Name length should not be less than 2 or greater than 16.")
     private String name;
@@ -49,7 +52,7 @@ public abstract class Hero{
     }
     public String toString(){
             StringBuilder stringBuilder = new StringBuilder();
-            //stringBuilder.append(this.id + " ");
+            stringBuilder.append(this.id + " ");
             stringBuilder.append("Name: " + this.name + "\n"); 
             stringBuilder.append("Class: " + this.characterClass+ "\n");
             stringBuilder.append("Level: " + this.level+ "\n");
@@ -59,6 +62,7 @@ public abstract class Hero{
             stringBuilder.append("Hitpoints: " + this.hitPoints+ "\n");
             return(stringBuilder.toString());
     }
+    public void setId(int id){this.id = id;}
     public void setName(String name){this.name = name;}
     public void setCharacterClass(String characterClass){this.characterClass = characterClass;}
     public void setLevel(int level){this.level = level;}
@@ -67,6 +71,7 @@ public abstract class Hero{
     public void setDefence(int defence){this.defence = defence;}
     public void setHitPoints(int hitPoints){this.hitPoints = hitPoints;}
 
+    public int getId(){return this.id;}
     public String getName(){return this.name;}
     public String getCharacterClass(){return this.characterClass;}
     public int getLevel(){return this.level;}

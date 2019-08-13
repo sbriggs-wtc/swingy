@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import com.mycompany.swingy.model.Hero;
 import com.mycompany.swingy.model.HeroFactory;
+import javax.swing.JOptionPane;
+import com.mycompany.swingy.Main;
 
 public class DBHandler{
     private static Connection connection = null;
@@ -37,6 +39,9 @@ public class DBHandler{
     }
     public static void insertHero(String name, String heroClass, int level, int experience, int attack, int defence, int hitPoints){
         try{
+            if(isDuplicateName(name)){
+                showErrorMessage("That hero name is already taken");
+            }else{
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_HERO);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, heroClass);
@@ -46,6 +51,7 @@ public class DBHandler{
             preparedStatement.setInt(6, defence);
             preparedStatement.setInt(7, hitPoints);
             preparedStatement.executeUpdate();
+            }
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
@@ -96,11 +102,47 @@ public class DBHandler{
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 HeroFactory heroFactory = new HeroFactory();
-                hero = heroFactory.newHero(resultSet.getString("name"), resultSet.getString("class"));
+                hero = heroFactory.newHero(
+                    resultSet.getString("name"), 
+                    resultSet.getString("class"),
+                    resultSet.getInt("level"),
+                    resultSet.getInt("experience"));
             }
         }catch(Exception e){
             System.err.println(e.getMessage());
         }
         return hero;
+    }
+    public static void updateHeroByName(String name, int level, int experience){
+        String query = "UPDATE heroes SET level = ?, experience = ? WHERE name = ?";
+        //Hero hero = null;
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, level);
+            preparedStatement.setInt(2, experience);
+            preparedStatement.setString(3, name);
+            /* ResultSet resultSet =  */preparedStatement.executeUpdate();
+/*             if(resultSet.next()){
+                HeroFactory heroFactory = new HeroFactory();
+                hero = heroFactory.newHero(resultSet.getString("name"), resultSet.getString("class"));
+            } */
+        }catch(Exception e){
+            System.err.println("In updateHeroByName: " + e.getMessage());
+        }
+        //return hero;
+    }
+    public static boolean isDuplicateName(String name) throws SQLException{
+        String query = "SELECT * FROM heroes WHERE name = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, name);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if(resultSet.next()){
+            return true;
+        }
+        return false;
+    }
+
+    public static void showErrorMessage(String message){
+        JOptionPane.showMessageDialog(Main.getFrame(), message);
     }
 }

@@ -1,11 +1,11 @@
 package com.mycompany.swingy.model;
 
 public class Philosopher extends Hero{
-    public Philosopher(String name){
+    public Philosopher(String name, int level, int experience){ 
         setName(name);
         setCharacterClass("Philosopher");
-        setLevel(2);
-        setExperience(1);
+        setLevel(level);
+        setExperience(experience);
         setAttack(25);
         setDefence(75);
         setHitPoints(100);
