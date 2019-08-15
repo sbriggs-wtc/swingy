@@ -69,5 +69,6 @@ public class Game{
     }
     public void setMapPosToFalse(int x, int y){
         map[x][y] = false;
+
     }
 }

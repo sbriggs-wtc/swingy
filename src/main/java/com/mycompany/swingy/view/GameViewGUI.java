@@ -18,6 +18,7 @@ public class GameViewGUI extends JPanel implements GameViewable{
     private static final long serialVersionUID = 1L;
     private GameController gameController;
     private JEditorPane jEditorPane = new JEditorPane();
+    private JEditorPane jEditorPane2 = new JEditorPane();
     private String[] directions = {"North", "East", "South", "West"};
     private JComboBox<String> directionsComboBox = new JComboBox<>(directions);
     private JButton jButton = new JButton("Move");
@@ -47,6 +48,10 @@ public class GameViewGUI extends JPanel implements GameViewable{
 
         this.add(jButton);
 
+        jEditorPane2.setEditable(false);
+        //jEditorPane2.setText("Info");
+        jEditorPane2.setSize(200, 200);
+        this.add(jEditorPane2);
 
         Main.getFrame().setContentPane(this);
         Main.getFrame().revalidate();
@@ -84,5 +89,8 @@ public class GameViewGUI extends JPanel implements GameViewable{
     public void openMainMenuView(){
         this.setVisible(false);
         new StartViewGUI().start();
+    }
+    public void setJEditorPane2Text(String text){
+        this.jEditorPane2.setText(text);
     }
 }

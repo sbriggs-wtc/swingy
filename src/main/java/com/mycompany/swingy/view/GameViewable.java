@@ -6,4 +6,5 @@ public interface GameViewable{
     public void update(Game game);
     public void showMessage(String message);
     public void openMainMenuView();
+    public void setJEditorPane2Text(String text); //temp
 }

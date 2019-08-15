@@ -13,7 +13,7 @@ import com.mycompany.swingy.database.*;
 
 public class Main{
     private static JFrame frame = null;
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
         if(!isValidInput(args)){
@@ -49,5 +49,8 @@ public class Main{
         getFrame().addWindowListener(new WindowAdapter(){
             //do nothing for now
         });
+    }
+    public static Scanner getScanner(){
+        return scanner;
     }
 }

@@ -36,23 +36,23 @@ public class GameController{
         game.getHeroCoord().setX(x);
         game.getHeroCoord().setY(y);
 
-        if(game.getMap()[x][y]){ //syntax that can be used on arrays
+        if(game.getMap()[y][x]){ //these have been swapped around
             if(game.getHero().getHitPoints() > 10){
-                game.getHero().setHitPoints(game.getHero().getHitPoints() - 10);
-                game.setMapPosToFalse(x, y);
+                int hp = game.getHero().getHitPoints();
+                System.out.println(hp);
+                game.getHero().setHitPoints(hp - 10);
+                game.setMapPosToFalse(y, x); //these have been swapped around
+                gameView.setJEditorPane2Text("Ouch! \n" + "Hitpoints: " +
+                game.getHero().getHitPoints() + "\n");
             }else{
                 loseGame();
             }
+        }else{
+            gameView.setJEditorPane2Text("\n" + "Hitpoints: " +
+            game.getHero().getHitPoints() + "\n");
         }
-        
 
         gameView.update(game);
-        //change coord
-        //check if still on map
-        //set new coords
-        //check if villain collision
-        //check if hitpoints
-        //update game
     }
     private void winGame(){
         int level = game.getHero().getLevel();

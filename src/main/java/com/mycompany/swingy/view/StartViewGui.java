@@ -9,7 +9,6 @@ import java.awt.event.*;
     private JButton selectHeroButton;
     private JTextField textField1;
     private JTextArea textArea1;
-    private int buttonClicked;
     private StartController startController;
     public StartViewGUI(){}
     public void start(){
@@ -17,7 +16,6 @@ import java.awt.event.*;
         Main.getFrame().setTitle("Start View1");
         createHeroButton = new JButton("Create Hero Menu");
         selectHeroButton = new JButton("Select Hero Menu");
-        //ListenForButton lForButton = new ListenForButton();
         selectHeroButton.addActionListener(new ActionListener(){
                 @Override
                 public void actionPerformed(ActionEvent e) {
