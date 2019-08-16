@@ -13,7 +13,7 @@ public class CreateHeroViewGUI extends JPanel implements CreateHeroViewable{
     private String[] heroClasses = {"Philosopher", "Scientist", "Politician"};
     private JLabel heroClass = new JLabel("Hero name: ");
     private JComboBox<String> classesComboBox = new JComboBox<>(heroClasses);
-    private JEditorPane infoPane = new JEditorPane(); //used to create simple text editor window
+    private JEditorPane infoPane = new JEditorPane();
     private CreateHeroController createHeroController;
     private String infoPaneString = "";
     public void start(){

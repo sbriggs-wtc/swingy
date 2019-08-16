@@ -3,7 +3,6 @@ package com.mycompany.swingy.view;
 import com.mycompany.swingy.controller.SelectHeroController;
 import com.mycompany.swingy.database.DBHandler;
 import com.mycompany.swingy.Main;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

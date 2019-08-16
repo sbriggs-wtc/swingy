@@ -2,13 +2,11 @@ package com.mycompany.swingy.controller;
 
 import com.mycompany.swingy.database.DBHandler;
 import com.mycompany.swingy.model.Game;
-import com.mycompany.swingy.util.Coord;
 import com.mycompany.swingy.view.*;
 
 public class GameController{
     private GameViewable gameView;
     private Game game;
-    private Coord previousCoord = new Coord(0, 0); //might not need this
     public GameController(GameViewable gameView){
         this.gameView = gameView;
         game = Game.getInstance();
@@ -17,12 +15,8 @@ public class GameController{
         gameView.update(game);
     }
     public void onMove(String direction){
-        //set previous coord
         int x = game.getHeroCoord().getX();
         int y = game.getHeroCoord().getY();
-        previousCoord.setX(x);
-        previousCoord.setY(y);
-
         switch(direction){
             case "North": y--; break;
             case "East": x++; break;
@@ -35,20 +29,14 @@ public class GameController{
         }
         game.getHeroCoord().setX(x);
         game.getHeroCoord().setY(y);
-
         if(game.getMap()[y][x]){ //these have been swapped around
             if(game.getHero().getHitPoints() > 10){
                 int hp = game.getHero().getHitPoints();
                 game.getHero().setHitPoints(hp - 10);
-                game.setMapPosToFalse(y, x); //these have been swapped around
-/*                 gameView.setJEditorPane2Text("Ouch! \n" + "Hitpoints: " + //this needs to be changed
-                game.getHero().getHitPoints() + "\n"); */
+                game.setMapPosToFalse(y, x);
             }else{
                 loseGame();
             }
-        }else{
-/*             gameView.setJEditorPane2Text("\n" + "Hitpoints: " +
-            game.getHero().getHitPoints() + "\n"); */
         }
         gameView.update(game);
     }

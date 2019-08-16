@@ -1,4 +1,5 @@
 package com.mycompany.swingy.controller;
+
 import com.mycompany.swingy.view.*;
 
 public class StartController{

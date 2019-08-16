@@ -120,11 +120,7 @@ public class DBHandler{
             preparedStatement.setInt(1, level);
             preparedStatement.setInt(2, experience);
             preparedStatement.setString(3, name);
-            /* ResultSet resultSet =  */preparedStatement.executeUpdate();
-/*             if(resultSet.next()){
-                HeroFactory heroFactory = new HeroFactory();
-                hero = heroFactory.newHero(resultSet.getString("name"), resultSet.getString("class"));
-            } */
+            preparedStatement.executeUpdate();
         }catch(Exception e){
             System.err.println("In updateHeroByName: " + e.getMessage());
         }
@@ -139,7 +135,6 @@ public class DBHandler{
         }
         return false;
     }
-
     public static void showErrorMessage(String message){
         JOptionPane.showMessageDialog(Main.getFrame(), message);
     }

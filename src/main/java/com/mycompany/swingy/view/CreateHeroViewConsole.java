@@ -37,6 +37,7 @@ public class CreateHeroViewConsole implements CreateHeroViewable{
     }
     @Override
     public void showErrorMessage(String message) {
+        System.out.println(message);
     }
     @Override
     public void openMainMenuView() {

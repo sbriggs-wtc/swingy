@@ -40,7 +40,6 @@ public abstract class Hero{
     private int hitPoints;
 
     public Hero(){}
-
     public void validateHero() throws HeroValidationException{
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
@@ -70,7 +69,6 @@ public abstract class Hero{
     public void setAttack(int attack){this.attack = attack;}
     public void setDefence(int defence){this.defence = defence;}
     public void setHitPoints(int hitPoints){this.hitPoints = hitPoints;}
-
     public int getId(){return this.id;}
     public String getName(){return this.name;}
     public String getCharacterClass(){return this.characterClass;}

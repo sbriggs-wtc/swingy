@@ -9,7 +9,6 @@ public class Game{
     private int mapSize;
     private static Game instance = null;
     private boolean[][] map;
-
     public static Game getInstance(){
         if (instance == null){
             instance = new Game();
@@ -38,10 +37,6 @@ public class Game{
                 }
             }
         }
-        //2d loop 
-        //find random number between 0 and 100
-        //if random number is above a certain
-        //frequency, set position to true
     }
     public boolean[][] getMap(){
         return map;

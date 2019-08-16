@@ -41,7 +41,6 @@ public class Main{
     }
     private static void frameListener(){
         getFrame().addWindowListener(new WindowAdapter(){
-            //do nothing for now
         });
     }
     public static Scanner getScanner(){
