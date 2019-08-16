@@ -1,11 +1,7 @@
 package com.mycompany.swingy.model;
 
-import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
-
-import javax.swing.JComboBox;
 import com.mycompany.swingy.util.Coord;
-//import java.util.concurrent.ThreadLocalRandom;
 
 public class Game{
     private Hero hero;
@@ -13,7 +9,6 @@ public class Game{
     private int mapSize;
     private static Game instance = null;
     private boolean[][] map;
-
 
     public static Game getInstance(){
         if (instance == null){
@@ -25,9 +20,6 @@ public class Game{
         this.hero = hero;
         generateMap();
         generateVillains();
-        //generate the map
-        //generate the villains
-        //place the hero
         placeHero();
     }
     public void generateMap(){
@@ -69,6 +61,5 @@ public class Game{
     }
     public void setMapPosToFalse(int x, int y){
         map[x][y] = false;
-
     }
 }

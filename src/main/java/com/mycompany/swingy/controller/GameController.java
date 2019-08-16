@@ -8,7 +8,7 @@ import com.mycompany.swingy.view.*;
 public class GameController{
     private GameViewable gameView;
     private Game game;
-    private Coord previousCoord = new Coord(0, 0);
+    private Coord previousCoord = new Coord(0, 0); //might not need this
     public GameController(GameViewable gameView){
         this.gameView = gameView;
         game = Game.getInstance();
@@ -39,19 +39,17 @@ public class GameController{
         if(game.getMap()[y][x]){ //these have been swapped around
             if(game.getHero().getHitPoints() > 10){
                 int hp = game.getHero().getHitPoints();
-                System.out.println(hp);
                 game.getHero().setHitPoints(hp - 10);
                 game.setMapPosToFalse(y, x); //these have been swapped around
-                gameView.setJEditorPane2Text("Ouch! \n" + "Hitpoints: " +
-                game.getHero().getHitPoints() + "\n");
+/*                 gameView.setJEditorPane2Text("Ouch! \n" + "Hitpoints: " + //this needs to be changed
+                game.getHero().getHitPoints() + "\n"); */
             }else{
                 loseGame();
             }
         }else{
-            gameView.setJEditorPane2Text("\n" + "Hitpoints: " +
-            game.getHero().getHitPoints() + "\n");
+/*             gameView.setJEditorPane2Text("\n" + "Hitpoints: " +
+            game.getHero().getHitPoints() + "\n"); */
         }
-
         gameView.update(game);
     }
     private void winGame(){

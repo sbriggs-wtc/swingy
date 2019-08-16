@@ -36,9 +36,9 @@ public class CreateHeroViewGUI extends JPanel implements CreateHeroViewable{
         infoPane.setEditable(false);
         infoPane.setSize(300, 300);
         infoPaneString += "Class        Attack      Defense     Hit Points\n";
-        infoPaneString += "Philosopher  999         999         999\n";
-        infoPaneString += "Scientist    999         999         999\n";
-        infoPaneString += "Politician   999         999         999\n";
+        infoPaneString += "Philosopher  25          75          100\n";
+        infoPaneString += "Scientist    50          50          100\n";
+        infoPaneString += "Politician   75          25          100\n";
         infoPane.setText(infoPaneString);
         this.add(infoPane);
 

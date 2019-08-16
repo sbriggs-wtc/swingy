@@ -115,7 +115,6 @@ public class DBHandler{
     }
     public static void updateHeroByName(String name, int level, int experience){
         String query = "UPDATE heroes SET level = ?, experience = ? WHERE name = ?";
-        //Hero hero = null;
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, level);
@@ -129,7 +128,6 @@ public class DBHandler{
         }catch(Exception e){
             System.err.println("In updateHeroByName: " + e.getMessage());
         }
-        //return hero;
     }
     public static boolean isDuplicateName(String name) throws SQLException{
         String query = "SELECT * FROM heroes WHERE name = ?";

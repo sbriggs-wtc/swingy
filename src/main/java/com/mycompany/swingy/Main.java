@@ -1,20 +1,14 @@
 package com.mycompany.swingy;
 
 import javax.swing.JFrame;
-
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.Scanner;
-import java.awt.event.WindowAdapter; //???
-//import com.mycompany.swingy.model.*;
+import java.awt.event.WindowAdapter;
 import com.mycompany.swingy.view.*;
-//import com.mycompany.swingy.controller.*;
 import com.mycompany.swingy.database.*;
 
 public class Main{
     private static JFrame frame = null;
     private static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args){
         if(!isValidInput(args)){
             System.out.println("The input is invalid");

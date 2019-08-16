@@ -12,7 +12,6 @@ public class CreateHeroViewConsole implements CreateHeroViewable{
         System.out.println("Enter a name for your hero");
         String name = scanner.nextLine();
         System.out.println(name);
-
         System.out.println("Choose your hero type");
         System.out.println("1) Philosopher");
         System.out.println("2) Scientist");
@@ -34,15 +33,13 @@ public class CreateHeroViewConsole implements CreateHeroViewable{
                 System.out.println("Unrecognized command");
             break;
         }
+        createController.onMainMenuButtonPressed();
     }
-
     @Override
     public void showErrorMessage(String message) {
-
     }
-
     @Override
     public void openMainMenuView() {
-
+        new StartViewConsole().start();
     }
 }

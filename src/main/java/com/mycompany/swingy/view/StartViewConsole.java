@@ -28,14 +28,12 @@ public class StartViewConsole implements StartViewable{
             }
         }
     }
-
     @Override
     public void openCreateHero() {
         new CreateHeroViewConsole().start();
     }
-
     @Override
     public void openSelectHero() {
-
+        new SelectHeroViewConsole().start();
     }
 }

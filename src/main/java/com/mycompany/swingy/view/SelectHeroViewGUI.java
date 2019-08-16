@@ -22,7 +22,6 @@ public class SelectHeroViewGUI extends JPanel implements SelectHeroViewable{
     public void start() {
         Main.getFrame().setTitle("Select Hero");
         selectHeroController = new SelectHeroController(this);
-
         createHeroMenuButton.setEnabled(true);
         createHeroMenuButton.addActionListener(new ActionListener(){
             @Override
@@ -31,7 +30,6 @@ public class SelectHeroViewGUI extends JPanel implements SelectHeroViewable{
             }
         });
         this.add(createHeroMenuButton);
-
         String[] data = selectHeroController.getListData();
         final JList<String> jList = new JList<>(data); //has to be final to be accessible in listener
         jList.addListSelectionListener(new ListSelectionListener(){
@@ -50,7 +48,6 @@ public class SelectHeroViewGUI extends JPanel implements SelectHeroViewable{
         });
         JScrollPane jScrollPane = new JScrollPane(jList);
         this.add(jScrollPane);
-
         jEditorPane.setEditable(false);
         jEditorPane.setText("Select Hero To See Info");
         JScrollPane jScrollPane2 = new JScrollPane(jEditorPane);
@@ -58,18 +55,12 @@ public class SelectHeroViewGUI extends JPanel implements SelectHeroViewable{
         jScrollPane2.setMinimumSize(new Dimension(150, 150));
         this.add(jScrollPane2);
         selectHeroButton.setEnabled(false);
-
-
-/*  */
         selectHeroButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 selectHeroController.onSelectButtonPressed(lastSelectedIdx);
             }
         });
-/*  */
-
-
         this.add(selectHeroButton);
         this.setVisible(true);
         Main.getFrame().setContentPane(this);
@@ -84,19 +75,10 @@ public class SelectHeroViewGUI extends JPanel implements SelectHeroViewable{
     public void openMainMenuView(){
         this.setVisible(false);
         new StartViewGUI().start();
-    }
-
-
-
-/*  */    
+    }  
     @Override
     public void openGame(){
         this.setVisible(false);
         new GameViewGUI().start();
     }
-/*  */
-
-
-
-
 }

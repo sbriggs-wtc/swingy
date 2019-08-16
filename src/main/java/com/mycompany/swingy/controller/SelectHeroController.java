@@ -4,7 +4,6 @@ import com.mycompany.swingy.database.*;
 import com.mycompany.swingy.view.SelectHeroViewable;
 import java.util.ArrayList;
 import com.mycompany.swingy.model.*;
-//import com.mycompany.swingy.view.GameViewGUI;
 
 public class SelectHeroController{
     private SelectHeroViewable selectHeroViewable;
@@ -19,28 +18,17 @@ public class SelectHeroController{
         heroList.toArray(heroArray);
         return(heroArray);
     }
-
-
-
-    
-/*  */
     public void onSelectButtonPressed(int index){
         Hero hero;
         hero = DBHandler.selectHeroById(++index);
         game.initGame(hero);
         selectHeroViewable.openGame();
     }
-/*  */
-
-
-
-
     public void onMainMenuButtonPressed(){
         selectHeroViewable.openMainMenuView();
     }
     public void onListElementSelected(int idx){
         Hero hero = DBHandler.selectHeroById(++idx);
-        //System.out.println(hero.toString());
         selectHeroViewable.updateInfo(hero.toString());
     }
 }

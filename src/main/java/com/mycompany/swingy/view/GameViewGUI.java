@@ -49,7 +49,6 @@ public class GameViewGUI extends JPanel implements GameViewable{
         this.add(jButton);
 
         jEditorPane2.setEditable(false);
-        //jEditorPane2.setText("Info");
         jEditorPane2.setSize(200, 200);
         this.add(jEditorPane2);
 
@@ -60,7 +59,6 @@ public class GameViewGUI extends JPanel implements GameViewable{
         gameController.onStart();
     }
     public void printMap(boolean[][] map, Coord heroCoord) {
-        // 2D loop printing map
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(String.format("MAP %dx%d\n", map.length, map.length));
         for(int i = 0; i < map.length; i++){
@@ -75,12 +73,13 @@ public class GameViewGUI extends JPanel implements GameViewable{
             }
             stringBuilder.append("\n");
         }
-        System.out.println(stringBuilder.toString());
         jEditorPane.setText(stringBuilder.toString());
     }
     @Override
     public void update(Game game){
         printMap(game.getMap(), game.getHeroCoord());
+        setHPInfoText("\n" + "Hitpoints: " +
+            game.getHero().getHitPoints() + "\n");
     }
     @Override
     public void showMessage(String message){
@@ -90,7 +89,7 @@ public class GameViewGUI extends JPanel implements GameViewable{
         this.setVisible(false);
         new StartViewGUI().start();
     }
-    public void setJEditorPane2Text(String text){
+    public void setHPInfoText(String text){
         this.jEditorPane2.setText(text);
     }
 }
